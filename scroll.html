@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            width: 560px;
+            height: 380px;
+        }
+        .xhrbigBox {
+            width: 560px;
+            height: 380px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 5px gray;
+        }
+
+        .xhrbox {
+            width: 560px;
+            height: 380px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            position: absolute;
+        }
+
+        .xhrcontainer {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 20%;
+            transition: all 1s;
+            transform-style: preserve-3d;
+        }
+
+        .xhrbox li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .xhrbox1 {
+            background: url("img/01.jpg");
+            transform: rotatey(60deg) translatez(485px);
+        }
+
+        .xhrbox2 {
+            background: url("img/02.jpg");
+            transform: rotatey(120deg) translatez(485px);
+
+        }
+
+        .xhrbox3 {
+            background: url("img/03_kis.jpg");
+            transform: rotatey(180deg) translatez(485px);
+
+        }
+
+        .xhrbox4 {
+            background: url("img/04.jpg");
+            transform: rotatey(240deg) translatez(485px);
+
+        }
+
+        .xhrbox5 {
+            background: url("img/04_kiss.jpg");
+            transform: rotatey(300deg) translatez(485px);
+
+        }
+
+        .xhrbox6 {
+            background: url("img/06.jpg");
+            transform: rotatey(360deg) translatez(485px);
+        }
+
+        .xhrleft, .xhrright {
+            position: absolute;
+            width: 25px;
+            height: 60px;
+            text-decoration: none;
+            line-height: 60px;
+            font-size: 40px;
+            color: black;
+            text-align: center;
+            top: 190px;
+            margin-top: -30px;
+            opacity: 0;
+        }
+        .xhrleft {
+            left:-20px;
+        }
+        .xhrright {
+            right: 0px;
+        }
+
+        .xhrcontainer:nth-child(2) li {
+            background-position: 0 -76px;
+        }
+
+        .xhrcontainer:nth-child(3) li {
+            background-position: 0px -152px;
+        }
+
+        .xhrcontainer:nth-child(4) li {
+            background-position: 0 -228px;
+        }
+
+        .xhrcontainer:nth-child(5) li {
+            background-position: 0 -304px;
+        }
+
+        .xhrboxTwo {
+            width: 560px;
+            height: 380px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .xhrcontainerTwo {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 20%;
+            height: 100%;
+            transition: all 1s;
+            transform-style: preserve-3d;
+            float: left;
+        }
+
+        .xhrboxTwo li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .xhrboxTwo1 {
+            background: url("img/01.jpg");
+            transform: rotatex(60deg) translatez(329px);
+        }
+
+        .xhrboxTwo2 {
+            background: url("img/02.jpg");
+            transform: rotatex(120deg) translatez(329px);
+
+        }
+
+        .xhrboxTwo3 {
+            background: url("img/03_kis.jpg");
+            transform: rotatex(180deg) translatez(329px);
+
+        }
+
+        .xhrboxTwo4 {
+            background: url("img/04.jpg");
+            transform: rotatex(240deg) translatez(329px);
+
+        }
+
+        .xhrboxTwo5 {
+            background: url("img/04_kiss.jpg");
+            transform: rotatex(300deg) translatez(329px);
+
+        }
+
+        .xhrboxTwo6 {
+            background: url("img/06.jpg");
+            transform: rotatex(360deg) translatez(329px);
+        }
+
+        .xhrtop, .xhrbottom {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            /*background-color: gray;*/
+            text-decoration: none;
+            line-height: 30px;
+            font-size: 40px;
+            color: black;
+            text-align: center;
+            left: 280px;
+            margin-left: -30px;
+            opacity: 0;
+        }
+
+        .xhrtop {
+            top: 0px;
+        }
+
+        .xhrbottom {
+            bottom: 0px;
+        }
+
+        .xhrcontainerTwo:nth-child(1) li {
+
+        }
+
+        .xhrcontainerTwo:nth-child(2) li {
+            background-position: -112px 0px;
+        }
+
+        .xhrcontainerTwo:nth-child(3) li {
+            background-position: -224px -0px;
+        }
+
+        .xhrcontainerTwo:nth-child(4) li {
+            background-position: -336px -0px;
+        }
+
+        .xhrcontainerTwo:nth-child(5) li {
+            background-position: -448px -0px;
+        }
+
+        .xhrbigBox:hover a {
+            opacity: .7;
+        }
+    </style>
+    <script src="js/jquery-1.12.3.js"></script>
+    <script> var num = 0;
+    $(function () {
+        $(".xhrleft").on("mouseenter", function (){
+          $('.xhrbox').fadeIn(0).siblings("div").fadeOut(0);
+
+        });
+        $(".xhrleft").on("click", function () {
+            num--;
+            $(".xhrcontainer").css({
+                transform: "rotatey(" + num * 60 + "deg)"
+            });
+            $(".xhrcontainer").each(function (i, e) {//利用each对每个li进行渲染
+                $(this).css({
+                    transitionDelay: i * 0.3 + "s"
+                });
+            })
+            $(".xhrcontainerTwo").css({
+                transform: "rotatex(" + num * 60 + "deg)"
+            });
+        })
+        $(".xhrright").on("mouseenter", function (){
+            $('.xhrbox').fadeIn(0).siblings("div").fadeOut(0);
+
+        });
+        $(".xhrright").on("click", function () {
+            num++;
+            $(".xhrcontainer").css({
+                transform: "rotatey(" + num * 60 + "deg)"
+            });
+            $(".xhrcontainer").each(function (i, e) {//利用each对每个li进行渲染
+                $(this).css({
+                    transitionDelay: i * 0.3 + "s"
+                });
+            })
+            $(".xhrcontainerTwo").css({
+                transform: "rotatex(" + num * 60 + "deg)"
+            });
+        })
+        $(".xhrbottom").on("mouseenter", function (){
+            $('.xhrboxTwo').fadeIn(0).siblings("div").fadeOut(0);
+
+        });
+        $(".xhrbottom").on("click", function () {
+            num--;
+            $(".xhrcontainerTwo").css({
+                transform: "rotatex(" + num * 60 + "deg)"
+            });
+            $(".xhrcontainerTwo").each(function (i, e) {//利用each对每个li进行渲染
+                $(this).css({
+                    transitionDelay: i * 0.3 + "s"
+                });
+            })
+            $(".xhrcontainer").css({
+                transform: "rotatey(" + num * 60 + "deg)"
+            });
+        })
+        $(".xhrtop").on("mouseenter", function (){
+            $('.xhrboxTwo').fadeIn(0).siblings("div").fadeOut(0);
+        });
+        $(".xhrtop").on("click", function () {
+            num++;
+            $(".xhrcontainerTwo").css({
+                transform: "rotatex(" + num * 60 + "deg)"
+            });
+            $(".xhrcontainerTwo").each(function (i, e) {//利用each对每个li进行渲染
+                $(this).css({
+                    transitionDelay: i * 0.3 + "s"
+                });
+            })
+            $(".xhrcontainer").css({
+                transform: "rotatey(" + num * 60 + "deg)"
+            });
+        })
+    })
+    </script>
+</head>
+<body>
+<div class="xhrbigBox">
+    <div class="xhrbox">
+        <ul class="xhrcontainer">
+            <li class="xhrbox1"></li>
+            <li class="xhrbox2"></li>
+            <li class="xhrbox3"></li>
+            <li class="xhrbox4"></li>
+            <li class="xhrbox5"></li>
+            <li class="xhrbox6"></li>
+        </ul>
+        <ul class="xhrcontainer">
+            <li class="xhrbox1"></li>
+            <li class="xhrbox2"></li>
+            <li class="xhrbox3"></li>
+            <li class="xhrbox4"></li>
+            <li class="xhrbox5"></li>
+            <li class="xhrbox6"></li>
+        </ul>
+        <ul class="xhrcontainer">
+            <li class="xhrbox1"></li>
+            <li class="xhrbox2"></li>
+            <li class="xhrbox3"></li>
+            <li class="xhrbox4"></li>
+            <li class="xhrbox5"></li>
+            <li class="xhrbox6"></li>
+        </ul>
+        <ul class="xhrcontainer">
+            <li class="xhrbox1"></li>
+            <li class="xhrbox2"></li>
+            <li class="xhrbox3"></li>
+            <li class="xhrbox4"></li>
+            <li class="xhrbox5"></li>
+            <li class="xhrbox6"></li>
+        </ul>
+        <ul class="xhrcontainer">
+            <li class="xhrbox1"></li>
+            <li class="xhrbox2"></li>
+            <li class="xhrbox3"></li>
+            <li class="xhrbox4"></li>
+            <li class="xhrbox5"></li>
+            <li class="xhrbox6"></li>
+        </ul>
+
+    </div>
+    <div class="xhrboxTwo">
+        <ul class="xhrcontainerTwo">
+            <li class="xhrboxTwo1"></li>
+            <li class="xhrboxTwo2"></li>
+            <li class="xhrboxTwo3"></li>
+            <li class="xhrboxTwo4"></li>
+            <li class="xhrboxTwo5"></li>
+            <li class="xhrboxTwo6"></li>
+        </ul>
+        <ul class="xhrcontainerTwo">
+            <li class="xhrboxTwo1"></li>
+            <li class="xhrboxTwo2"></li>
+            <li class="xhrboxTwo3"></li>
+            <li class="xhrboxTwo4"></li>
+            <li class="xhrboxTwo5"></li>
+            <li class="xhrboxTwo6"></li>
+        </ul>
+        <ul class="xhrcontainerTwo">
+            <li class="xhrboxTwo1"></li>
+            <li class="xhrboxTwo2"></li>
+            <li class="xhrboxTwo3"></li>
+            <li class="xhrboxTwo4"></li>
+            <li class="xhrboxTwo5"></li>
+            <li class="xhrboxTwo6"></li>
+        </ul>
+        <ul class="xhrcontainerTwo">
+            <li class="xhrboxTwo1"></li>
+            <li class="xhrboxTwo2"></li>
+            <li class="xhrboxTwo3"></li>
+            <li class="xhrboxTwo4"></li>
+            <li class="xhrboxTwo5"></li>
+            <li class="xhrboxTwo6"></li>
+        </ul>
+        <ul class="xhrcontainerTwo">
+            <li class="xhrboxTwo1"></li>
+            <li class="xhrboxTwo2"></li>
+            <li class="xhrboxTwo3"></li>
+            <li class="xhrboxTwo4"></li>
+            <li class="xhrboxTwo5"></li>
+            <li class="xhrboxTwo6"></li>
+        </ul>
+
+    </div>
+    <a href="###" class="xhrleft">〈</a><a href="###" class="xhrright">〉</a>
+    <a href="###" class="xhrtop">︿</a><a href="###" class=" xhrbottom">﹀</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src='js/jquery-1.12.3.js'></script>
+    <script src='js/jquery.fullPage.min.js'></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/page2.css"/>
+    <link rel="stylesheet" href="css/yang.css"/>
+    <link rel="stylesheet" href="css/page5.css"/>
+    <link rel="stylesheet" href="css/page4-01.css"/>
+    <link rel="stylesheet" href="css/csm-header.css"/>
+    <link rel="stylesheet" href="css/lc.css"/>
+    <link rel="stylesheet" href="css/lifangti.css"/>
+    <script src="js/exit.js"></script>
+    <script>
+        $(function () {
+            lifangti();
+            $('#container').fullpage({
+                afterLoad: function (a, i) {
+                    $('.section').removeClass('current');
+                    setTimeout(function () {
+                        $(".section").eq(i - 1).addClass("current");
+                    }, 200)
+                },
+                onLeave: function (i, n, d) {
+                    console.log(i + '|' + n + '|' + d);
+                }
+            });
+        });
+    </script>
+
+    <style>
+        #csm-header .csm-dis{
+            display:inline-block;
+        }
+        #csm-header .csm-nodis{
+            display:none;
+        }
+        .section {
+            padding-top: 25px;
+            overflow: hidden;
+        }
+
+        #csm-header {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: 1000;
+            /*padding-right:300px;*/
+            /*padding-top:100px;*/
+            /*opacity:0.8;*/
+        }
+
+        .csm-right {
+            padding-right: 200px;
+        }
+    </style>
+    <!--立方体-->
+    <script>
+
+        /**
+         * Created by ming on 2016/7/20.
+         */
+
+        function lifangti() {
+            var bigBox = document.getElementById("csm-bigbox");
+            var divs = bigBox.getElementsByTagName("div");
+            bigBox.style.transform = "rotatey(30deg) rotatex(30deg) rotatez(30deg)"
+            var z = false;
+            for(var i = 0;i<divs.length;i++) {
+                divs[i].index = i ;
+                divs[i].onmousedown = function() {
+
+                    console.log("whitch"+this.index);
+                    var wNum = 1,hNum = 1;
+
+
+                    var e = arguments[0]||window.event;
+                    var x1 = e.clientX;
+                    var y1 = e.clientY;
+                    var bf = bigBox.style.transform;
+                    console.log(bf);
+                    var arr = bf.match(/-?\d+/g);
+                    if(arr) {
+                        var wy = parseInt(arr[0]);
+                        var hx = parseInt(arr[1]);
+                        var hz = parseInt(arr[2]);
+                    }
+                    wy = wy||0;
+                    hx = hx||0;
+                    hz = hz ||0;
+
+
+                    switch (this.index) {
+                         case 0: wNum =1;hNum =-1;z = false;break;//前面
+                         case 1: wNum =1;hNum =1;z = false;break; //后面---------
+                         case 2: wNum =1;hNum =-1;z = true;break;//左面
+                         case 3: wNum =1;hNum =1;z = true;break;//右边----------
+                         case 4: wNum =1;hNum =-1;z = false;break;//上面
+                         case 5: wNum =1;hNum =-1;z = false;break;//下面
+
+
+//                        case 0: wNum =1;hNum =-1;z = false;break;//前面
+//                        case 1: wNum =1;hNum =-1;z = false;break;//后面
+//                        case 2: wNum =1;hNum =-1;z = true;break;//左面
+//                        case 3: wNum =1;hNum =1;z = true;break;//右边
+//                        case 4: wNum =1;hNum =-1;z = false;break;//上面
+//                        case 5: wNum =1;hNum =-1;z = false;break;//下面
+                        default:break;
+                    }
+
+
+
+
+
+
+
+                    document.onmousemove = function() {
+                        var ev = arguments[0]||window.event;
+                        var x2 = ev.clientX;
+                        var y2= ev.clientY;
+                        var w = x2-x1;
+                        var h = y2-y1;
+                        console.log(wy+"__"+w);
+                        console.log(hx+"__"+h);
+                        if(z) {
+                            witch1();
+                        }else{
+                            witch()
+                        }
+
+                        return false;
+
+                        function witch1() {
+                            console.log("z");
+                            bigBox.style.transform = "rotatey("+parseInt((w*wNum)*0.4+wy)+"deg)" +" rotatex("+parseInt(hx)+"deg)"+" rotatez("+parseInt((h*hNum)*0.4+hz)+"deg)";
+                        }
+                        function witch() {
+                            console.log("x");
+                            bigBox.style.transform = "rotatey("+parseInt((w*wNum)*0.4+wy)+"deg)" +" rotatex("+parseInt((h*hNum)*0.4+hx)+"deg)"+" rotatez("+parseInt(hz)+"deg)";
+                        }
+
+                    };
+
+
+
+                };
+                document.onmouseup = function() {
+                    var bf = bigBox.style.transform;
+                    console.log(bf);
+                    var arr = bf.match(/-?\d+/g);
+
+                    var wy = parseInt(arr[0]);
+                    var hx = parseInt(arr[1]);
+                    var hz = parseInt(arr[2]);
+                    console.log(wy);
+                    console.log(hx)
+                    console.log(hz)
+
+                    document.onmousemove = null;
+                };
+            }
+        };
+
+    </script>
+    <style>
+        #csm-iframe{
+            /*width:590px;*/
+            /*height:400px;*/
+            width: 110%;
+            height: 100%;
+            /*margin:0 auto;*/
+        }
+    </style>
+</head>
+<body>
+
+<div id="csm-header">
+    <h1><a href="index.html">leoge</a></h1>
+    <ul class="csm-left">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="present/present.html">案例展示</a></li>
+        <li><a href="javascript:;">网友分享</a></li>
+        <li><a href="javascript:;">个人中心</a></li>
+    </ul>
+    <ul class="csm-right">
+        <li class="thisuser"><a href="javascript:;">111111</a></li>
+        <li id="csm-exit"><a href="">退出</a></li>
+        <li class="csm-load-link"><a href="load.html">登录</a></li>
+        <li class="csm-resize-link"><a href="resize.html">注册</a></li>
+    </ul>
+</div>
+
+
+<div id="container">
+
+
+    <div class="section page1">
+        <img src="images/1.jpg">
+
+        <div class="page1_left">
+            <img src="images/1_1.png" alt=""/>
+        </div>
+
+        <div class="page1_right">
+            <img src="images/1_3.png" alt=""/>
+        </div>
+
+        <div class="page1_bol">
+            <img src="images/1_2.png" alt=""/>
+        </div>
+
+        <div class="page1_bor">
+            <img src="images/1_4.png" alt=""/>
+        </div>
+        <div class="page1_box">
+            <div class="logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="page1text1">智能、简单的HTML5场景创作工具</div>
+            <div class="page1text2">从未想象的简单与有趣，移动的时代，轻、快、优雅，LEOGE带给你全新的创意设计体验。</div>
+            <a href="resize.html" class="sign">
+                注&nbsp;&nbsp;&nbsp;册
+            </a>
+            <a href="load.html" class="login">
+                登&nbsp;&nbsp;&nbsp;录
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="section secondSection">
+        <div id="csm-bigbox">
+            <div class="csmbefore"></div>
+            <div class="csmafter"></div>
+            <div class="csmleft"></div>
+            <div class="csmright"></div>
+            <div class="csmtop"></div>
+            <div class="csmbottom"></div>
+        </div>
+
+
+        <div class="h-box">
+            <div class="h-textBox">
+                <p class="h-text1">移动场景营销专家</p>
+
+                <p class="h-text2">不让复杂的设计软件拘束你的创意,用最简单有趣的方式制作场景、微页面、贺卡、名片等所有你想要的一切.</p>
+            </div>
+            <div class="h-img">
+                <img src="imgs/h-01.png">
+            </div>
+            <div class="h-img2">
+                <img src="imgs/h-02.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="section zs_third_page">
+        <div class="zs_third_bgbox">
+            <div class="zs_text1">简单的拖拉拽</div>
+            <div class="zs_text2">搜索你需要的素材，通过拖拉拽即可完成素材的挑选与使用，这一切不需要下载任何插件或文件，让你更专注于自己的创意。</div>
+            <div class="zs_imgbox1 zs_img"><img src="images/3_1.png" alt=""></div>
+            <div class="zs_imgbox2 zs_img"><img src="images/3_2.png" alt=""></div>
+            <div class="zs_imgbox3 zs_img"><img src="images/3_3.png" alt=""></div>
+            <div class="zs_imgbox4 zs_img">
+                <!--<iframe src="scroll.html" frameborder="0" id="csm-iframe">-->
+
+                <!--</iframe>-->
+
+                <img src="images/3_4.jpg" alt="">
+
+
+
+            </div>
+            <div class="zs_imgbox5 zs_img"><img src="images/3_5.png" alt=""></div>
+            <div class="zs_imgbox6 zs_img"><img src="images/3_6.png" alt=""></div>
+        </div>
+    </div>
+
+
+    <div class="section page5">
+        <h2 class="share">SHARE 分享</h2>
+
+        <p class="share_text">
+            你可以分享到各大社交网络，富媒体的设计分享，让创意的
+            <br/>
+            展现不再是静止的图片；先进的HTML5技术，丰富的动态
+            <br/>
+            效果。
+        </p>
+
+        <div class="printer"><img src="images/5_4.png" alt=""/></div>
+        <div class="phone"><img src="images/5_3.png" alt=""/></div>
+        <div class="adjustAuto"><img src="images/5_5.png" alt=""/></div>
+        <div class="computer_a"><img src="images/5_1.png" alt=""/></div>
+        <div class="computer_b"><img src="images/5_2.png" alt=""/></div>
+    </div>
+
+
+    <div class="section">
+        <!--<div class="p4-banner">-->
+        <!--<ul>-->
+        <!--<li><a href="###">HOME</a></li>-->
+        <!--<li><a href="###">案例展示</a></li>-->
+        <!--<li><a href="###">网友分享</a></li>-->
+        <!--<li><a href="###">个人中心</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <div class="p4-main">
+            <div class="p4-main-w">
+                <div class="p4-main-w-box">
+                    <div class="p4-pen"><img src="imgs/4_7.png" alt=""/></div>
+                    <div class="p4-book-box">
+                        <div class="p4-book-innerBox">
+                            <div class="p4-book"><img src="imgs/book01.png" alt=""/></div>
+                        </div>
+                    </div>
+                    <div class="p4-com-box">
+                        <div class="p4-computer"><img src="imgs/4_8.png" alt=""/></div>
+                        <div class="p4-picture">
+                            <!--<img src="imgs/4_9.png" alt=""/>-->
+                            <div class="p4-bigBox" id="p4_bigBox">
+                                <ul>
+                                    <li><img src="imgs/1-s.fw.png" alt=""/></li>
+                                    <li><img src="imgs/2-s.fw.png" alt=""/></li>
+                                    <li><img src="imgs/3-s.fw.png" alt=""/></li>
+                                    <li><img src="imgs/4-s.fw.png" alt=""/></li>
+                                    <!--<li><img src="imgs/5-s.fw.png" alt=""/></li>-->
+                                    <li>
+                                        <video src="imgs/music.mkv" controls></video>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p4-coffee"><img src="imgs/4_2.png" alt=""/></div>
+                    <div class="p4-glass"><img src="imgs/4_5.png" alt=""/></div>
+                    <div class="p4-ballPic"><img src="imgs/4_10.png" alt=""/></div>
+                    <div class="p4-arrow-box">
+                        <div class="p4-arrow"><img src="imgs/4_1.png" alt=""/></div>
+                    </div>
+                    <div class="p4-text1">
+                        <span class="p4-text1-span1">免</span>
+                        <span class="p4-text1-span2">费</span>
+                        <span class="p4-text1-span3">与</span>
+                        <span class="p4-text1-span4">智</span>
+                        <span class="p4-text1-span5">能</span>
+                    </div>
+                    <div class="p4-text2">
+                        LEOGE为你提供大量免费的场景模板、高质量的摄影图片、背景、模板等素材，方便你自由创意。上传自己的素材到云端，无论何时何地都能使用，再也不用担心找不到素材。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="section section-t"></div>-->
+    <div class="section sixth">
+        <!-- 左上边框 -->
+        <div class="left_t_b divborder">
+            <img src="images/6_4.png" alt="">
+        </div>
+        <!-- 右上边框 -->
+        <div class="right_t_b divborder">
+            <img src="images/6_3.png" alt="">
+        </div>
+        <!-- 左下边框 -->
+        <div class="left_b_b divborder">
+            <img src="images/6_2.png" alt="">
+        </div>
+        <!-- 右下边框 -->
+        <div class="right_b_b divborder">
+            <img src="images/6_1.png" alt="">
+        </div>
+        <!-- LOGO圆圈 -->
+
+        <a href="#">
+            <div class="round">
+                <img src="images/6_6.png" alt="">
+                <img class="logo" src="images/6_7.png" alt="">
+            </div>
+        </a>
+    </div>
+
+
+</div>
+
+<script>
+    window.onload = (function () {
+        var p4_bigBox = document.getElementById("p4_bigBox");
+        var p4_ul = p4_bigBox.children[0];
+        var p4_lis = p4_ul.children;
+        var imgWidth = p4_bigBox.offsetWidth;
+        var pic = 0;
+        var firstImg = p4_lis[0].cloneNode(true);
+        p4_ul.appendChild(firstImg);
+        var timerId = null;
+        p4_bigBox.onmouseover = function () {
+            clearInterval(timerId);
+        }
+        p4_bigBox.onmouseout = function () {
+            timerId = setInterval(playNext, 1000);
+        }
+        timerId = setInterval(playNext, 1000);
+        function playNext() {
+            if (pic == p4_lis.length - 1) {
+                pic = 0;
+                p4_ul.style.left = "0px";
+            }
+            pic++;
+            target = -imgWidth * pic;
+            animate(p4_ul, target);
+        }
+
+        function animate(obj, target) {
+            clearInterval(obj.timerId);
+            obj.timerId = setInterval(function () {
+                var leader = obj.offsetLeft;
+                var step = 10;
+                step = leader < target ? step : -step;
+                leader = leader + step;
+                if (Math.abs(target - leader) > Math.abs(step)) {
+                    p4_ul.style.left = leader + "px";
+                } else {
+                    clearInterval(obj.timerId);
+                    p4_ul.style.left = target + 'px';
+                }
+            }, 15)
+        }
+
+//        var video=document.querySelector("video");
+//        console.log(video);
+//        if(video==played){
+//            clearInterval(timerId);
+//        }else{
+//            timerId = setInterval(playNext, 1000);
+//        }
+    })
+</script>
+</body>
+</html>

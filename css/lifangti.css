@@ -1,0 +1,60 @@
+
+#csm-bigbox {
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    /*perspective: 200px;*/
+    perspective: 0px;
+    position: absolute;
+
+    left:390px;
+    top:240px;
+    transform-style: preserve-3d;
+    /*transform: rotatey(10deg) rotatex(10deg);*/
+    /*border:10px solid #cccccc;*/
+    z-index: 100;
+
+}
+#csm-bigbox div {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    /*opacity: 0.3;*/
+    text-align: center;
+    line-height: 200px;
+}
+.csmbefore{
+    background: url("../imgs/001.jpg") ;
+    background-size: 200px 200px;
+    transform:translatez(100px);
+}
+.csmafter{
+    background: url("../imgs/002.jpg") ;
+    background-size: 200px 200px;
+    transform:translatez(-100px);
+}
+.csmleft {
+    background: url("../imgs/003.jpg") ;
+    background-size: 200px 200px;
+    transform: rotatey(-90deg) translateZ(100px);
+}
+.csmright{
+    background: url("../imgs/004.jpg") ;
+    background-size: 200px 200px;
+    transform: rotatey(90deg) translatez(100px);
+
+}
+.csmbottom{
+    background: url("../imgs/005.jpg") ;
+    background-size: 200px 200px;
+    transform: rotatex(-90deg) translatez(100px);
+
+}
+.csmtop{
+    background: url("../imgs/006.jpg") ;
+    background-size: 200px 200px;
+    transform: rotatex(90deg) translatez(100px);
+
+}
+
+

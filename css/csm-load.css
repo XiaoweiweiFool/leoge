@@ -1,0 +1,107 @@
+body{
+    background-color: #F0F0F0;
+    color:#768A87;
+}
+
+.csm-w{
+    margin:0 auto;
+    width: 950px;
+}
+
+.csm-h{
+    height:90px;
+}
+h2{
+    height:90px;
+    font-size:25px;
+    width:200px;
+    float:left;
+    line-height:118px;
+}
+.csm-h-right{
+    float:right;
+    margin-top:40px;
+
+
+}
+.csm-h-right span{
+    display:inline-block;
+    height:30px;
+
+}
+.csm-h-right a{
+    display: inline-block;
+    width:80px;
+    height:30px;
+    text-align:center;
+    color:white;
+    line-height:30px;
+    background-color: #49CE33;
+}
+.csm-box{
+    height:360px;
+    background-color: white;
+}
+.csm-box img{
+    float:left;
+}
+#csm-load-box ul{
+    padding-top:50px;
+    padding-left:90px;
+    float:left;
+}
+#csm-load-box ul li{
+    height:50px;
+    width:225px;
+    font-weight:bold;
+    line-height:50px;
+}
+#csm-load-box input{
+    height:33px;
+}
+#csm-checkbox{
+    padding-left:42px;
+}
+#csm-checkbox input{
+    vertical-align: middle;
+}
+#csm-checkbox span{
+    /*float:right;*/
+    font-weight:normal;
+}
+#csm-submit{
+    padding-left:42px;
+
+}
+#csm-submit input{
+    background-color: #49CE33;
+    width:80px;
+    outline-style:none;
+    border:1px solid #49CE33;
+    border-radius:5px;
+    color:white;
+    cursor:pointer;
+
+}
+
+#csm-submit input:hover{
+    background-color: #127E03;
+}
+#csm-submit span{
+    margin-left:10px;
+    color:red;
+
+}
+.csm-footer{
+    margin-top:60px;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+    background-color: #222324;
+}
+.csm-dis{
+    display: inline-block;
+}
+.csm-nodis{
+    display: none;
+}

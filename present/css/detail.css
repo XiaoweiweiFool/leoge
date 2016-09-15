@@ -1,0 +1,153 @@
+
+body{
+    background-color: #f0f0f0;
+}
+#csm-nav{
+    width: 100%;
+    height:50px;
+    padding-left:130px;
+    line-height:50px;
+    background-color: #f8f8f8;
+    border:1px solid #ccc;
+    color:#333;
+}
+.clearfix:after {
+    content: "";
+    height:0;
+    clear:both;
+    line-height:0;
+    overflow: hidden;
+    display: block;
+}
+#fa{
+    width:100%;
+    position:relative;
+}
+#csm-tem{
+    margin-left:100px;
+    position:absolute;
+    margin-top:10px;
+    float:left;
+}
+#csm-content{
+    width: 60%;
+    /*height:900px;*/
+    background-color: white;
+    margin-left:450px;
+    border: 1px solid transparent;
+    border-radius:20px;
+    float:left;
+}
+#csm-content h1{
+    height:100px;
+    line-height:100px;
+    padding-left:50px;
+    color:#53536b;
+    border-bottom:1px solid #ccc;
+
+}
+#csm-box{
+    /*height:600px;*/
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+#csm-box img{
+    width: 330px;
+    margin-left:100px;
+    /*max-height:600px;*/
+    /*display:block;*/
+}
+
+#csm-content p{
+    height:100px;
+    font-size:30px;
+    padding-left: 50px;
+    line-height:100px;
+    border-bottom:1px solid #ccc;
+}
+#csm-box p{
+    border:none;
+}
+#csm-comment{
+    width: 60%;
+    /*height:900px;*/
+    background-color: white;
+    margin-left:450px;
+    margin-top:20px;
+    border: 1px solid transparent;
+    border-radius:20px;
+}
+#csm-comment p{
+    height:30px;
+    font-weight: 600;
+    padding:30px 0 20px 20px;
+}
+#csm-comment textarea{
+    padding:0 10px;
+    width:95%;
+    margin:0 20px;
+    border-radius: 20px;
+    outline-style: none;
+    font-size:25px;
+}
+#csm-comment #csm-text{
+    padding:0 10px;
+    width:95%;
+    margin:0 20px;
+    border-radius: 20px;
+    outline-style: none;
+    font-size:20px;
+    height:100px;
+}
+#csm-comment #csm-btn{
+    width:50px;
+    height:30px;
+    margin:20px 0px 30px 40px;
+    background-color: skyblue;
+    border-radius: 5px;
+    border-color:skyblue;
+    color:white;
+    outline-style: none;
+}
+#csm-mycomment{
+    margin-top:20px;
+}
+#csm-mycomment li {
+    list-style: none;
+    height:200px;
+    border:1px solid #ccc;
+
+}
+#csm-mycomment li img{
+    margin-top:40px;
+    margin-left:10px;
+    float:left;
+}
+#csm-mycomment p{
+    padding-left:100px;
+
+}
+#csm-mycomment .p1{
+    height:30px;
+    color:limegreen;
+    padding:10px 0px 0px 120px;
+}
+#csm-mycomment .p2{
+    height:auto;
+    padding:10px 20px 5px 140px;
+    font-weight:normal;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

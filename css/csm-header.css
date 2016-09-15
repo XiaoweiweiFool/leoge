@@ -1,0 +1,90 @@
+@charset "UTF-8";
+*{
+    margin:0;
+    padding: 0;
+
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style:none;
+
+}
+#csm-header ul li{
+    float:left;
+    display:inline-block;
+    text-align: center;
+}
+#csm-header ul li a{
+    color:#9D9D9D;
+}
+#csm-header ul li a:hover{
+    color:white;
+}
+ul.csm-left {
+    float:left;
+}
+ul.csm-left li{
+    width:100px;
+    height:100%;
+
+}
+ul.csm-right {
+    margin-top:10px;
+    float:right;
+    height:50px;
+    line-height:50px;
+
+    
+
+}
+#csm-header ul.csm-right .thisuser a{
+    color:orange;
+}
+ul.csm-right li{
+    min-width: 70px;
+    height: 33px;
+    line-height:33px;
+    display: inline-block;
+    float:left;
+    text-align: center;
+}
+#csm-header{
+    /*width: 100%;*/
+    height:50px;
+    background-color: #363636;
+    padding-left:100px;
+    padding-right:100px;
+    line-height:50px;
+
+}
+#csm-header h1{
+    float:left;
+    display:inline-block;
+}
+#csm-header h1 a {
+    color: white;
+    display: inline-block;
+    width: 100px;
+    text-indent: -999em;
+    background: url("../images/csm-logo.png") no-repeat 0px 10px;
+
+}
+
+.csm-load-link{
+    background-color: #505050;
+    margin-right:20px;
+
+}
+/*.csm-load-link a{*/
+    /*color:#ACACAC;*/
+
+/*}*/
+.csm-resize-link{
+
+    background-color: #49CE33;
+}
+#csm-header .csm-resize-link a{
+    color:white;
+}

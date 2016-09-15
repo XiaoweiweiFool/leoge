@@ -1,0 +1,112 @@
+body,div,p,ul,li,a,img,input,h1,h2,h3{
+	margin: 0px;
+	padding: 0px;
+}
+.fristSection{
+	background-color: pink;
+}
+.fristSection .fristBox{
+	width: 600px;
+	height:500px;
+	background-color: red;
+}
+.secondSection{
+	background-color: #00aebb;
+	position: relative;
+}
+.secondSection .h-box{
+	width: 70%;
+	height: 100%;
+	left: 15%;
+	top: 94px; 
+	background: url("../imgs/h-box_bg.jpg")no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+.secondSection .h-textBox{
+	width: 50%;
+	position: absolute;
+	left: 72px;
+	top: 36px;
+	font-family: "微软雅黑";
+}
+.secondSection .h-text1{
+	width: 60%;
+	height: 79px;
+	color: white;
+	font-size: 33px;
+	position: absolute;
+	transform: translate(-200%,0);
+}
+/*我的*/
+.secondSection #csm-bigbox{
+	opacity: 0;
+	transform:rotatex(30deg) rotatey(30deg) rotatez(30deg);
+}
+.secondSection.current #csm-bigbox {
+	opacity: 1;
+	transition: opacity 1s;
+
+}
+
+
+
+.secondSection.current .h-text1{
+	transition: all 1s;
+	transform: translate(0px,0px)
+}
+.secondSection .h-text2{
+	width: 100%;
+	height: 71px;
+	font-size: 16px;
+	color: white;
+	line-height: 22px;
+	position: absolute;
+	top:56px;
+	transform: translate(-200%,0);
+}
+.secondSection.current .h-text2{
+	transition: all 1s;
+	transform: translate(0px,0px)
+}
+.secondSection .h-img{
+	width: 100%;
+	height: 538px;
+	/* background-color:red; */
+	position: absolute;
+	bottom: 0px;
+	overflow: hidden;
+	
+}
+.secondSection .h-img img{
+	width: 100%;
+	height: 538px;
+	position: absolute;
+	/* top:105px; */
+	transform: rotateX(45deg) translate(0px,100%);
+	
+}
+.secondSection.current .h-img img{
+	transition: all 1s;
+	transform: rotateX(45deg) translate(0px,0px);
+	
+}
+.secondSection .h-img2{
+	width: 225px;
+	height: 180px;
+	position: absolute;
+	left: 80%;
+	top: -35px;
+	overflow: hidden;
+	
+}
+.secondSection .h-img2 img{
+	width: 150px;
+	position: absolute;
+	transform: translate(400%,0px);
+}
+.secondSection.current .h-img2 img{
+	transition: all 1s;
+	transform: translate(0px,0px);
+}
+

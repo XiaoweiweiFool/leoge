@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>案例展示｜乐知</title>
+	<script src="js/jquery-3.0.0.min.js"></script>
+	<script src="js/template-native.js"></script>
+	<link rel="stylesheet" href="../css/csm-header.css"/>
+	<script src="js/exit1.js"></script>
+	<style>
+		@font-face {
+		  font-family: "untitled-font-1";
+		  src:url("fonts/untitled-font-1.eot");
+		  src:url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
+		    url("fonts/untitled-font-1.woff") format("woff"),
+		    url("fonts/untitled-font-1.ttf") format("truetype"),
+		    url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
+		  font-weight: normal;
+		  font-style: normal;
+
+		}
+		.icon::after{
+			font-family: "untitled-font-1" !important;
+			font-style: normal !important;
+			font-weight: normal !important;
+			font-variant: normal !important;
+			text-transform: none !important;
+			speak: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.icon::before{
+			font-family: "untitled-font-1" !important;
+			font-style: normal !important;
+			font-weight: normal !important;
+			font-variant: normal !important;
+			text-transform: none !important;
+			speak: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		*{
+			margin:0px;
+			padding:0px;
+			
+		}
+		body{
+			font: normal 16px/18px "Microsoft Yahei";
+		}
+		a{
+			text-decoration:none;
+			color:#000;
+			font:normal 16px "Microsoft Yahei";
+		}
+		a:hover{
+			color:#44BB5C;
+		}
+		html,body{
+			background:#f7f7f7;
+			height: 100%;
+		}
+		main{
+			position:relative;
+			height: 100%;
+		}
+		.item{
+			width: 272px;
+			box-shadow:0px 5px 15px gray;
+			position:absolute;
+			border-radius:10px;
+		}
+		.imgBox{
+			overflow:hidden;
+			border-radius:10px 10px 0px 0px ;
+			position:relative;
+		}
+		.imgBox>a{
+			display: block;
+		}
+		.imgBox>a img{
+			width: 100%;
+			transition:transform .5s ease;
+		}
+		.imgBox:hover>a>img{
+			transform:scale(1.2, 1.2);
+			
+		}
+		.imgBox>img:last-child{
+			position:absolute;
+			left:24px;
+			width:80%;
+			bottom:0%;
+			margin-bottom:-220px;
+			transition:all .5s ease;
+		}
+		.imgBox img.show{
+			bottom:50%;
+			margin-bottom:-115px;
+		}
+		.info{
+			padding:5px 10px;
+			background:#fff;
+			border-bottom:1px solid #aaa;
+			position:relative;
+		}
+		#code{
+			color:grey;
+			position:absolute;
+			right:15px;
+			top:15px;
+		}
+		#code::after{
+			content:"e";
+			font-size:30px;	
+		} 
+		#code:hover{
+			cursor:pointer;
+			color:#44BB5C;
+		}
+		.info>a{
+			display:block;
+		}
+		.pv{
+			vertical-align:middle;
+			font-size:12px;
+			color:lightgrey;
+			height:20px;
+			line-height:25px;
+		}
+		.pv>span{
+			margin-right: 10px;
+		}
+		.pv>span:nth-child(1)::before{
+			content:"a";
+		}
+		.pv>span:nth-child(2)::before{
+			content:"b";
+		}
+		.pv>span:nth-child(3)::before{
+			content:"c";
+		}
+		.author{
+			font-size:12px;
+		}
+		.tag{
+			background:#fff;
+		}
+		
+		.tag{
+			padding:5px 10px;
+			border-radius:0px 0px 10px 10px;
+			transition:all .5s ease;
+			height:14px;
+			overflow:hidden;
+		}
+		.item:hover>.tag{
+			height:auto;
+		}
+		
+		.tag>a{
+			margin-right:5px;
+		}
+
+		#csm-header h1 a{
+			background-position: 0px -8px;
+		}
+		#csm-header .csm-dis{
+			display:inline-block;
+		}
+		#csm-header .csm-nodis{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+
+<!--我加的头部-->
+<div id="csm-header">
+<h1><a href="index.html">leoge</a></h1>
+<ul class="csm-left">
+	<li><a href="../index.html">首页</a></li>
+	<li><a href="javascript:;">案例展示</a></li>
+	<li><a href="javascript:;">网友分享</a></li>
+	<li><a href="javascript:;">个人中心</a></li>
+</ul>
+<ul class="csm-right">
+	<li class="thisuser"><a href="javascript:;">111111</a></li>
+	<li id="csm-exit"><a href="">退出</a></li>
+	<li class="csm-load-link"><a href="../load.html">登录</a></li>
+	<li class="csm-resize-link"><a href="../resize.html">注册</a></li>
+</ul>
+</div>
+
+	<header></header>	
+	<main>
+		<!-- <div class="item">
+			<div class="imgBox">
+				<img src="img/1606201136317660.jpg" alt="">
+				<img src="img/code2.jpg" alt="">
+			</div>
+			<div class="info" >
+				<a class="title" src="#">可口可乐 福娃送祝福</a>
+				<div class="pv">
+					<span class="icon">123456</span>
+					<span class="icon">3</span>
+					<span class="icon">4</span>
+				</div>
+				<p class="author">by <i>可口可乐</i></p>
+				<i class="icon" id="code"></i>
+			</div>
+			<div class="tag"><a href="#">可口可乐</a><a href="#">可口可乐</a><a href="#">可口可乐</a><a href="#">可口可乐</a><a href="#">可口可乐</a><a href="#">可口可乐</a></div>
+		</div> -->
+	</main>
+</body>
+</html>
+<script type="text/html" id="template1">
+	<div class='item'>
+		<div class='imgBox'>
+			<a href=""><img src='<%=img%>' alt='' class='mainImg'></a>
+			<img src='<%=code%>' alt=''>
+		</div>
+		<div class='info' >
+			<a class='title' src='#'><%=title%></a>
+			<div class='pv'>
+				<%for(var i=0;i<pv.length;i++){%>
+					<span class='icon'><%=pv[i]%></span>
+				<%}%>
+			</div>
+			<p class='author'><i><%=author%></i></p>
+			<i class='icon' id='code'></i>
+		</div>
+		<div class='tag'>
+			<%for(var i=0;i<tag.length;i++){%>
+				<a href='<%=tag[i].link%>'><%=tag[i].name%></a>
+			<%}%>
+		</div>
+	</div>
+</script>
+
+<script>	 
+	var ind=0;
+	var main=$("main");
+	var colsH=[];
+	var colW=290;
+	$(function(){
+		var colsNum=getColsNum();
+		for(var i=0;i<colsNum;i++){
+			colsH[i]=0;
+		}
+		createItem();
+		$(window).on("scroll",function(){
+			var max=Math.max.apply(null,colsH);
+			if($(window).height()+$(window).scrollTop()+100>=max){
+//				console.log("create");
+				createItem();
+
+			}
+		});
+		$(window).on("resize",function(){
+			if(getColsNum()!=colsNum){
+				colsNum=getColsNum();
+				colsH=[];
+				for(var i=0;i<colsNum;i++){
+					colsH[i]=0;
+				}
+				assign($(".item"));
+			}
+		});
+	});
+
+	 function getColsNum(){
+	 	var screenw=$(window).width();
+	 	var colsNum=Math.floor(screenw/colW);
+	 	var w=colsNum*colW;
+	 	main.css({
+	 		width:w+"px",
+	 		margin:"0 auto",
+	 	});
+	 	return colsNum;
+	 }
+	 function createItem(){
+	 		isfinished=false;
+	 		var items=[];
+		 	var res=$.ajax({
+				url:"present.php",
+				type:"get",
+				data:{index:ind},
+				success:function(data){
+					var data=JSON.parse(data);
+					ind=data.index;
+					for(var i=0;i<data.data.length;i++){
+						var html=template("template1",data.data[i]);
+						var item=$(html);
+						item.find("#code").on("mouseenter",function(){
+							$(this).parent().siblings('.imgBox').children("img").last().addClass('show');
+						});
+						item.find("#code").on("mouseleave",function(){
+				 			$(this).parent().siblings('.imgBox').children("img").last().removeClass('show');
+				 		});
+						main.append(item);
+						items.push(item[0]);
+					}
+					isImgLoad($(items[0]),items,assign);
+					console.log((items[0]));
+				}
+			});
+	 
+	 }
+	 function assign(items){
+	 	for(var i=0;i<items.length;i++){
+	 		var min=Math.min.apply(null,colsH);
+	 		var index=colsH.indexOf(min);
+	 		items[i].style.left=index*colW+"px";
+	 		items[i].style.top=min+"px";
+	 		colsH[index]+=items[i].offsetHeight+30;
+	 	}
+	 }
+	 function isImgLoad(imgContainer,arg,callback){
+	 	var loaded=true;
+//		 console.log(imgContainer)
+ 		var siblings=imgContainer.nextAll();
+//		 console.log(siblings)
+ 		for(var i=0;i<siblings.length;i++){
+ 			if(siblings.eq(i).find(".mainImg").height()==0){
+ 				loaded=false;
+ 				var next=siblings.eq(i);
+//				var next = imgContainer;
+ 				break;
+ 			}
+ 		}
+		 console.log(loaded)
+ 		if(loaded){
+ 			callback(arg);
+ 			return;
+ 		}
+ 		var img=imgContainer.find(".mainImg");
+ 		img[0].onload=function(){
+ 			isImgLoad(next,arg,callback);
+ 		};
+	 }
+</script>
+<script>
+	$(function () {
+		$("body").on("click",".imgBox>a>img",function() {
+			var reg = /img\/\d*\.jpg/;
+
+			var ma = this.src.match(reg);
+
+			localStorage.setItem("imgsrc", ma);
+
+			location.href = "detail.html";
+
+			return false;
+		})
+	});
+</script>

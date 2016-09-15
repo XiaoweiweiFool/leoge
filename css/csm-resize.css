@@ -1,0 +1,152 @@
+body{
+    background-color: #F0F0F0;
+    color:#768A87;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.csm-w{
+    margin:0 auto;
+    width: 950px;
+}
+
+.csm-h{
+    height:90px;
+}
+input{
+    outline-style: none;
+}
+h2{
+    height:90px;
+    font-size:25px;
+    width:200px;
+    float:left;
+    line-height:118px;
+    /*border:1px solid #ccc;*/
+}
+.csm-h-right{
+    float:right;
+    margin-top:40px;
+
+
+}
+.csm-h-right span{
+    display:inline-block;
+    height:30px;
+
+}
+.csm-h-right a{
+    display: inline-block;
+    width:80px;
+    height:30px;
+    text-align:center;
+    color:white;
+    line-height:30px;
+    background-color: #49CE33;
+}
+.csm-box{
+    height:390px;
+    background-color: white;
+}
+
+.csm-box li{
+    height:50px;
+    /*border:1px solid #ccc;*/
+    line-height:50px;
+}
+.csm-box-left{
+    float: left;
+    width:250px;
+    padding-right:15px;
+    padding-top:45px;
+
+
+}
+.csm-box-left li{
+    width:250px;
+    text-align:right;
+    font-weight:bold;
+}
+.csm-box-right{
+    padding-top:45px;
+    float:left;
+}
+.csm-box-right li{
+    position:relative;
+}
+.csm-box-right input{
+    display:inline-block;
+    height:35px;
+    width:400px;
+}
+#csm-test {
+    width: 200px;
+    margin-right:50px;
+}
+#getTest{
+    width:150px;
+}
+#csm-checkbox {
+    position:absolute;
+    top:-15px;
+    left:0px;
+    width:20px;
+    margin-top:20px;
+
+}
+#csm-checkbox-li{
+    position:relative;
+    /*line-height:10px;*/
+    padding-left:30px;
+
+}
+#csm-submit{
+    width:100px;
+    background-color: #49CE33;
+    color:white;
+    border:none;
+
+}
+#csm-submit:hover{
+    background-color: #127E03;
+}
+.csm-footer{
+    margin-top:60px;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+    background-color: #222324;
+}
+.csm-box-right span{
+    display: inline-block;
+}
+.csm-dis{
+    display:inline-block !important;
+
+}
+.csm-nodis{
+    display: none !important;
+}
+.csm-pass{
+    width:30px;
+    position:absolute;
+    right:-50px;
+    top:5px;
+    height:35px;
+    margin-left:15px;
+    margin-right:15px;
+    background: url("../images/csm-pass.png") no-repeat 10px 15px;
+}
+.csm-error,.csm-has{
+    color:red;
+    position:absolute;
+    right:-220px;
+    top:5px;
+    width:160px;
+    height:35px;
+    padding-left:40px;
+    margin-right:15px;
+    background: url("../images/csm-error.png") no-repeat 10px 15px;
+
+}

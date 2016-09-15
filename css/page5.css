@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.page5{
+    background:#e4e4e4 ;
+}
+.page5>div{
+    position: relative;
+
+}
+.share{
+    position: absolute;
+    color: #00aebb;
+    font-family:'Microsoft YaHei';
+    font-weight: 100;
+    font-size: 46px;
+    left: 10%;
+    opacity: 0;
+    top: 30%;
+
+}
+.currentrent .share{
+    transition: all 1s;
+    opacity: 1;
+    left: 25%;
+    top: 30%;
+}
+.share_text{
+    position: absolute;
+    left: 10%;
+    top: 40%;
+    opacity: 0;
+    line-height: 26px;
+    font-family:'Microsoft YaHei';
+    font-size: 14px;
+}
+.current .share_text{
+    transition: all 1s;
+    opacity: 1;
+    left: 25%;
+    top: 40%;
+}
+.printer,.phone{
+    position: absolute;
+    left: 10%;
+    width: 10%;
+    height: 20%;
+
+}
+.printer{
+    top: 15%;
+    perspective:1000px ;
+}
+
+.phone{
+    top: 35%;
+    perspective:1000px;
+}
+
+.printer img ,.phone img{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /*background: red;*/
+}
+@keyframes rock {
+    from{ transform: rotatex(90deg)}
+    20%{ transform: rotatex(-45deg)}
+    40%{ transform: rotatex(30deg)}
+    60%{ transform: rotatex(-15deg)}
+    80%{transform: rotatex(15deg)}
+    to{transform: rotatex(0deg)}
+}
+
+
+.current .printer img{
+    transform-style:preserve-3d;
+    transform:rotatex(0deg);
+    animation: rock 1.5s 0.7s ease-in;
+    transition:all 2s 0.7s;
+    opacity: 1;
+}
+
+.current .phone img{
+    transform-style:preserve-3d;
+    transform:rotatex(0deg);
+    animation: rock 1.5s 1s ease-in;
+    transition:all 2s 1s;
+    opacity: 1;
+}
+
+.adjustAuto{
+    position: absolute;
+    left: 10%;
+    top: 60%;
+    width: 12%;
+    height: 25%;
+
+}
+
+.adjustAuto img{
+    width:100% ;
+    height:100% ;
+    transform: rotatez(90deg);
+    opacity: 0;
+}
+.current .adjustAuto img{
+    transition:all 1s 1.5s;
+    opacity: 1;
+    transform: rotatez(0deg);
+}
+
+.computer_a{
+    position: absolute;
+    /*left:526px ;*/
+    /*top: 227px;*/
+    left:40% ;
+    bottom: -70%;
+    width: 50%;
+    height: 70%;
+    opacity: 0;
+}
+.computer_b{
+    position: absolute;
+    /*left: 800px;*/
+    /*top: 250px;*/
+    left: 60%;
+    bottom:18%;
+    width: 29%;
+    height: 44%;
+    opacity: 0;
+}
+
+.computer_a img,.computer_b img{
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes computer {
+    from{opacity: 0;}
+    30%{opacity: 1;left:40% ;bottom:-5%;}
+    to{opacity: 0.5;left:40% ;bottom:-5%;}
+}
+.current .computer_a{
+    /*left:526px ;*/
+    /*bottom: -50px;*/
+    /*left:526px ;*/
+    /*bottom: -678px;*/
+    transition:all 0.7s;
+    width: 50%;
+    height: 70%;
+    animation: computer 0.8s 0.5s linear forwards;
+    opacity: 0.5;
+
+}
+.current .computer_b{
+    left: 55%;
+    bottom:40%;
+
+    /*left: 800px;*/
+    /*bottom: -297px;*/
+    transition:all 0.5s 1s;
+    opacity: 1;
+}

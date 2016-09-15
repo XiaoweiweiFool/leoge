@@ -1,0 +1,537 @@
+@charset "UTF-8";
+/*初始化开始*/
+body, div, a, ul, li, span, p ,img{
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*banner开始*/
+.p4-banner {
+    height: 40px;
+    background-color: #007A83;
+}
+
+.p4-banner > ul {
+    width: 400px;
+    /*border: 1px solid #000;*/
+    display: flex;
+    margin: 0 auto;
+}
+
+.p4-banner li {
+    flex: 1;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.p4-banner a {
+    height: 40px;
+    width: 100%;
+    display: inline-block;
+    line-height: 40px;
+    color: #fff;
+    transition: all .4s;
+}
+
+.p4-banner li:hover {
+    background-color: #ffb892;
+}
+
+.p4-banner li:hover a {
+    color: #ff464a;
+    font-size: 24px;
+    font-weight: 900;
+    text-shadow: 0 0 3px skyblue;
+}
+
+/*banner结束*/
+/*main部分开始*/
+.p4-main {
+    width: 100%;
+    height: 594px;
+    background-color: #00AEBB;
+    padding-top: 45px;
+    perspective: 4000px;
+}
+
+.p4-main-w {
+    width: 924px;
+    height: 594px;
+    margin: 0 auto;
+    position: relative;
+    background: url("../imgs/p4-box_bg.jpg") no-repeat left top /924px 594px;
+    transform-style: preserve-3d;
+}
+.p4-main-w-box{
+    width: 924px;
+    height: 594px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translatez(50px);
+}
+.p4-main-w-box > div {
+    position: absolute;
+    opacity: 0.0;
+}
+
+.p4-main-w .p4-pen {
+    width: 20px;
+    top: 200px;
+    left: 165px;
+    transform: translatey(0px);
+}
+
+.p4-main-w .p4-book-box {
+    width: 120px;
+    height: 154px;
+    top: 158px;
+    left: 30px;
+    box-shadow: 3px 5px 5px black;
+    background: url("../imgs/books.jpg") left bottom/116px 156px;
+    transform-style:preserve-3d;
+}
+.p4-main-w .p4-book-innerBox {
+    width: 240px;
+    position: absolute;
+    left: -120px;
+}
+.p4-main-w .p4-book {
+    width: 120px;
+    position: absolute;
+    right: 0px;
+}
+.p4-com-box{
+    width: 255px;
+    height: 250px;
+    top: 65px;
+    left: 230px;
+    /*border: 1px solid #000;*/
+    transform-style: preserve-3d;
+    transform: translatey(550px);
+}
+
+.p4-main-w .p4-computer {
+    width: 300px;
+    position: absolute;
+}
+
+.p4-main-w .p4-picture {
+    width: 238px;
+    position: absolute;
+    top: -202px;
+    left: 7px;
+    perspective: 400px;
+    opacity: 0;
+}
+
+.p4-bigBox {
+    width: 210px;
+    height: 120px;
+    background-color: red;
+    margin: 200px auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotatex(-45deg);
+    overflow: hidden;
+}
+
+.p4-bigBox > ul {
+    list-style: none;
+    width: 1260px;
+    height: 120px;
+    border: 1px solid #000;
+    position: absolute;
+}
+
+.p4-bigBox > ul > li {
+    width: 210px;
+    height: 100%;
+    float: left;
+}
+.p4-bigBox > ul > li:nth-child(5) {
+    /*width: 210px;*/
+    /*height: 100%;*/
+    /*float: left;*/
+    background: url("../imgs/5-s.fw.png") left top/210px 120px;
+}
+.p4-bigBox > ul video {
+    width: 210px;
+    height: 100%;
+    opacity: .8;
+}
+.p4-main-w .p4-coffee {
+    width: 90px;
+    bottom: 130px;
+    right: 550px;
+}
+
+.p4-main-w .p4-glass {
+    width: 100px;
+    bottom: 30px;
+    right: 120px;
+}
+
+.p4-main-w .p4-ballPic {
+    width: 350px;
+    top:20px;
+    right: 20px;
+    transform: translatey(700px);
+}
+
+.p4-main-w .p4-arrow-box {
+    width: 110px;
+    bottom: 45px;
+    left: -50px;
+    transform: translatey(0px);
+}
+
+.p4-main-w .p4-arrow {
+    width: 110px;
+}
+
+.p4-main-w .p4-text1 {
+    width: 300px;
+    height: 45px;
+    bottom: 135px;
+    left: 420px;
+    font-size: 34px;
+    font-family: "microsoft yahei";
+    color: #ffffff;
+    /*border: 1px solid red;*/
+    opacity: 1;
+}
+
+.p4-main-w .p4-text1 > span {
+    width: 40px;
+    height: 45px;
+    display: inline-block;
+    transform: translatex(700px);
+    opacity: .1;
+}
+
+.p4-main-w .p4-text2 {
+    width: 660px;
+    bottom: 60px;
+    left: 100px;
+    font-size: 15px;
+    font-family: "microsoft yahei";
+    color: #ffffff;
+    transform: translatex(-160%);
+}
+
+.p4-main-w img {
+    width: 100%;
+}
+
+/*动画开始*/
+
+/*箭头动画*/
+@keyframes playArrowBox {
+    from {
+        opacity: .0;
+        transform: translatey(220px);
+    }
+    20% {
+        transform: translatey(-10px);
+    }
+    40% {
+        transform: translatey(10px);
+    }
+    60% {
+        transform: translatey(-5px);
+    }
+    80% {
+        transform: translatey(5px);
+    }
+    to {
+        transform: translatey(0px);
+    }
+}
+
+.section.current .p4-arrow-box {
+    animation: playArrowBox .8s 1 linear;
+    transition: all 1.2s 1s;
+    opacity: 1;
+}
+
+@keyframes playArrow {
+    to {
+        transform: rotatey(360deg);
+    }
+}
+
+.p4-arrow-box:hover .p4-arrow {
+    animation: playArrow 1s infinite linear alternate;
+}
+
+/*铅笔动画*/
+@keyframes playPen {
+    from {
+        /*opacity: .1;*/
+        transform: translatey(450px);
+    }
+    60% {
+        transform: translatey(-100px);
+    }
+    to {
+        transform: translatey(0px);
+    }
+}
+
+.section.current .p4-pen {
+    animation: playPen .8s 1 2s;
+    transition: all .8s 2s;
+    opacity: 1;
+}
+
+/*book动画*/
+@keyframes playBook {
+    from {
+        opacity: .0;
+        transform: translatex(-350px);
+    }
+    50% {
+        transform: rotatez(0deg);
+    }
+    80% {
+        transform-origin: right bottom;
+        transform: rotatez(20deg);
+    }
+    to {
+        transform: translatex(0px);
+    }
+}
+
+.section.current .p4-book-box {
+    animation: playBook 1.2s 1;
+    transition: all 1.2s 1s;
+    opacity: 1;
+}
+.p4-main-w .p4-book-box:hover{
+    transition: all .3s;
+    transform: rotatex(25deg);
+}
+.p4-main-w .p4-book-box:hover .p4-book-innerBox{
+    transition: all 1s;
+    transform: rotatey(-130deg);
+}
+/*眼镜动画*/
+@keyframes playGlass {
+    from {
+        transform: translatey(50px);
+        opacity: .1;
+    }
+    20% {
+        transform: translatey(-30px);
+    }
+    40% {
+        transform: translatey(0px);
+    }
+    60% {
+        transform: translatey(-20px);
+    }
+    75% {
+        transform: translatey(0px);
+    }
+    90% {
+        transform: translatey(-5px);
+    }
+    to {
+        transform: translatey(0px);
+    }
+}
+
+.section.current .p4-glass {
+    animation: playGlass .7s 1 1s;
+    transition: all .7s 1s;
+    opacity: 1;
+}
+/*text1动画*/
+.section.current .p4-text1-span1 {
+    transition: all .7s cubic-bezier(.01,1.28,.99,1.13);
+    transform: translatex(0);
+    opacity: 1;
+}
+
+.section.current .p4-text1-span2 {
+    transition: all .7s 1s cubic-bezier(0,1.79,1,-0.25);
+    opacity: 1;
+    transform: translatex(0);
+
+}
+
+.section.current .p4-text1-span3 {
+    transition: all .7s 2s cubic-bezier(0,1.79,1,-0.25);
+    transform: translatex(0);
+    opacity: 1;
+}
+
+.section.current .p4-text1-span4 {
+    transition: all .7s 3s cubic-bezier(0,1.79,1,-0.25);
+    transform: translatex(0);
+    opacity: 1;
+}
+
+.section.current .p4-text1-span5 {
+    transition: all .7s 4s cubic-bezier(0,1.39,.98,1.39);
+    transform: translatex(0);
+    opacity: 1;
+}
+
+/*text2动画*/
+.section.current .p4-text2 {
+    transition: all .8s ease-in-out;
+    transform: translatex(0);
+    opacity: 1;
+}
+/*coffee动画*/
+@keyframes playCoffee {
+    from {
+        transform: translatey(0px);
+        opacity: .1;
+    }
+    20% {
+        transform: translatey(-10px);
+    }
+    40% {
+        transform: translatey(10px);
+    }
+    60% {
+        transform: translatey(-5px);
+    }
+    75% {
+        transform: translatey(5px);
+    }
+    90% {
+        transform: translatey(-2px);
+    }
+    to {
+        transform: translatey(2px);
+    }
+}
+
+.section.current .p4-coffee {
+    animation: playCoffee .7s 1 .5s;
+    transition: all .7s .5s;
+    opacity: 1;
+}
+
+
+/*p4-ballPic动画开始*/
+
+@keyframes playBall {
+    from {
+        transform: rotatex(0deg);
+    }
+    15% {
+        transform: rotatex(20deg);
+    }
+    30% {
+        transform: rotatex(-20deg);
+    }
+    45% {
+        transform: rotatex(12deg);
+    }
+    60% {
+        transform: rotatex(-12deg);
+    }
+    75% {
+        transform: rotatex(6deg);
+    }
+    90% {
+        transform: rotatex(-6deg);
+    }
+    to {
+        transform:rotatex(0deg);
+    }
+}
+
+.section.current .p4-ballPic {
+    animation: playBall .7s 1 .5s;
+    transition: all .7s cubic-bezier(0,1.83,1,.11);
+    transform: translatey(0px);
+    opacity: 1;
+}
+/*p4-com-box动画开始*/
+@keyframes playComBox {
+    from {
+        transform: rotatex(0deg);
+    }
+    15% {
+        transform: rotatex(12deg);
+    }
+    30% {
+        transform: rotatex(-12deg);
+    }
+    45% {
+        transform: rotatex(8deg);
+    }
+    60% {
+        transform: rotatex(-8deg);
+    }
+    75% {
+        transform: rotatex(4deg);
+    }
+    90% {
+        transform: rotatex(-4deg);
+    }
+    to {
+        transform:rotatex(0deg);
+    }
+}
+
+.section.current .p4-com-box {
+    animation: playComBox 1.2s 1 .5s;
+    transition: all 1.2s;
+    transform: translatey(0px);
+    opacity: 1;
+}
+
+/*picture动画开始*/
+@keyframes playPicture {
+    from {
+        transform: rotatex(0deg);
+    }
+    15% {
+        transform: rotatex(6deg);
+    }
+    30% {
+        transform: rotatex(-6deg);
+    }
+    45% {
+        transform: rotatex(4deg);
+    }
+    60% {
+        transform: rotatex(-4deg);
+    }
+    75% {
+        transform: rotatex(2deg);
+    }
+    90% {
+        transform: rotatex(-2deg);
+    }
+    to {
+        transform:rotatex(0deg);
+    }
+}
+
+.section.current .p4-picture {
+    transition: all 1.2s 1s;
+    opacity: 1;
+}
+
+
+
+/*main部分结束*/
+.section-t {
+    background-color: pink;
+}
